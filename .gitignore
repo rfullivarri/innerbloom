@@ -1,0 +1,13 @@
+node_modules
+pnpm-lock.yaml
+dist
+coverage
+.env
+apps/*/.env
+apps/*/dist
+apps/web/node_modules
+apps/api/node_modules
+.husky/_
+.DS_Store
+.idea
+.vscode
