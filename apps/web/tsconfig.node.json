@@ -1,0 +1,10 @@
+{
+  "extends": "@innerbloom/tsconfig/tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "module": "ESNext",
+    "moduleResolution": "NodeNext",
+    "noEmit": true
+  },
+  "include": ["vite.config.ts"]
+}
