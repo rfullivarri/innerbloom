@@ -1,17 +1,17 @@
 # Innerbloom Monorepo
 
-A minimal PNPM workspace for the Innerbloom gamification MVP. It ships with a TypeScript Express API and a Vite + React client that share linting, formatting, and TypeScript foundations.
+A minimal npm workspace for the Innerbloom gamification MVP. It ships with a TypeScript Express API and a Vite + React client that share linting, formatting, and TypeScript foundations.
 
 ## Prerequisites
 
 - Node.js 20 LTS (`nvm use` with the provided `.nvmrc`)
-- [PNPM](https://pnpm.io/) 8+
+- npm 10+
 
 ## Getting Started
 
 1. Install dependencies:
    ```bash
-   pnpm install
+   npm install
    ```
 2. Copy environment templates and adjust as needed:
    ```bash
@@ -20,20 +20,20 @@ A minimal PNPM workspace for the Innerbloom gamification MVP. It ships with a Ty
    ```
 3. Start both apps with one command:
    ```bash
-   pnpm dev
+   npm run dev local
    ```
 
 ## Available Scripts
 
 | Command | Description |
 | --- | --- |
-| `pnpm dev` | Runs API and web app together with live reload. |
-| `pnpm build` | Builds every workspace package and app in topological order. |
-| `pnpm lint` | Lints all workspaces with the shared ESLint rules. |
-| `pnpm format` | Checks formatting via Prettier across the repo. |
-| `pnpm test` | Executes Vitest suites in every workspace. |
+| `npm run dev local` | Runs API and web app together with live reload. |
+| `npm run build` | Builds every workspace package and app in topological order. |
+| `npm run lint` | Lints all workspaces with the shared ESLint rules. |
+| `npm run format` | Checks formatting via Prettier across the repo. |
+| `npm run test` | Executes Vitest suites in every workspace. |
 
-Each workspace also exposes local scripts (e.g. `pnpm --filter @innerbloom/api lint`).
+Each workspace also exposes local scripts (e.g. `npm run lint --workspace @innerbloom/api`).
 
 ## Environment Variables
 
