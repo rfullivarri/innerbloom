@@ -4,7 +4,7 @@
   "type": "module",
   "version": "0.0.0",
   "scripts": {
-    "dev": "concurrently -c \"auto\" -n \"api,web\" \"pnpm --filter api dev\" \"pnpm --filter web dev\"",
+    "dev": "pnpm -r --parallel --filter ./apps/api --filter ./apps/web dev",
     "build": "pnpm -r --filter ./... run build",
     "lint": "pnpm -r --filter ./... run lint",
     "format": "pnpm -r --filter ./... run format",
