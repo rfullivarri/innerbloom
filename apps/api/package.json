@@ -7,7 +7,6 @@
     "dev": "ts-node-dev --respawn --transpile-only --esm --ignore-watch node_modules --no-notify src/server.ts",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/server.js",
-    "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "format": "prettier --check \"src/**/*.{ts,tsx,json}\"",
     "test": "vitest run"
   },

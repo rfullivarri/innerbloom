@@ -8,8 +8,7 @@
     "build": "pnpm -r --filter ./... run build",
     "lint": "pnpm -r --filter ./... run lint",
     "format": "pnpm -r --filter ./... run format",
-    "test": "pnpm -r --filter ./... run test",
-    "prepare": "husky install"
+    "test": "pnpm -r --filter ./... run test"
   },
   "devDependencies": {
     "@types/node": "^20.11.17",
@@ -22,16 +21,9 @@
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "husky": "^9.0.7",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "typescript": "^5.3.3",
     "vitest": "^1.2.2"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,md,css}": [
-      "pnpm exec prettier --write",
-      "pnpm exec eslint --fix"
-    ]
   }
 }

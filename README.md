@@ -63,7 +63,6 @@ packages/
 
 - Shared ESLint and Prettier presets keep code style aligned.
 - Strict TypeScript configuration (NodeNext module resolution) across all workspaces.
-- Husky + lint-staged guard every commit with formatting and lint checks.
 - Vitest powers fast unit testing for both server and client.
 - GitHub Actions workflow validates lint and build on every push or PR.
 
