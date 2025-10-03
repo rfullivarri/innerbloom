@@ -3,14 +3,24 @@
   "private": true,
   "type": "module",
   "version": "0.0.0",
-  "packageManager": "pnpm@8.15.4",
+  "packageManager": "npm@10.5.0",
+  "workspaces": {
+    "packages": [
+      "apps/api",
+      "apps/web",
+      "packages/config",
+      "packages/shared",
+      "packages/tsconfig"
+    ]
+  },
   "scripts": {
-    "preinstall": "corepack enable && corepack prepare pnpm@8.15.4 --activate",
-    "dev": "pnpm -r --parallel --filter ./apps/api --filter ./apps/web dev",
-    "build": "pnpm -r --filter ./... run build",
-    "lint": "pnpm -r --filter ./... run lint",
-    "format": "pnpm -r --filter ./... run format",
-    "test": "pnpm -r --filter ./... run test"
+    "dev": "npm run dev:local",
+    "dev:local": "concurrently \"npm run dev --workspace @innerbloom/api\" \"npm run dev --workspace @innerbloom/web\"",
+    "local": "node -e \"\"",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "format": "npm run format --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
   },
   "devDependencies": {
     "@types/node": "^20.11.17",
