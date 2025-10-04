@@ -1,6 +1,6 @@
 # Innerbloom Monorepo
 
-A minimal npm workspace for the Innerbloom gamification MVP. It ships with a TypeScript Express API and a Vite + React client that share linting, formatting, and TypeScript foundations.
+A minimal npm workspace for the Innerbloom gamification MVP. It ships with a TypeScript Express API and a Vite + React client.
 
 ## Prerequisites
 
@@ -20,16 +20,16 @@ A minimal npm workspace for the Innerbloom gamification MVP. It ships with a Typ
    ```
 3. Start both apps with one command:
    ```bash
-   npm run dev local
+   npm run dev
    ```
 
 ## Available Scripts
 
 | Command | Description |
 | --- | --- |
-| `npm run dev local` | Runs API and web app together with live reload. |
+| `npm run dev` | Runs API and web app together with live reload. |
 | `npm run build` | Builds every workspace package and app in topological order. |
-| `npm run lint` | Lints all workspaces with the shared ESLint rules. |
+| `npm run lint` | Lints all workspaces with their local ESLint rules. |
 | `npm run format` | Checks formatting via Prettier across the repo. |
 | `npm run test` | Executes Vitest suites in every workspace. |
 
@@ -53,15 +53,11 @@ Each workspace also exposes local scripts (e.g. `npm run lint --workspace @inner
 apps/
   api/   Express REST API with Swagger docs at /docs
   web/   Vite + React dashboard with responsive navigation
-packages/
-  config/    Shared ESLint + Prettier presets
-  tsconfig/  Strict TypeScript base configuration
-  shared/    Typed utilities shared between API and web
 ```
 
 ## Tooling Highlights
 
-- Shared ESLint and Prettier presets keep code style aligned.
+- ESLint and Prettier are configured per workspace for flexibility.
 - Strict TypeScript configuration (NodeNext module resolution) across all workspaces.
 - Vitest powers fast unit testing for both server and client.
 - GitHub Actions workflow validates lint and build on every push or PR.

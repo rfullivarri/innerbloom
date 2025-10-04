@@ -1,4 +1,13 @@
-import type { ApiResult, HealthResponse } from "@innerbloom/shared";
+export type ApiResult<T> = {
+  data: T | null;
+  error?: string;
+};
+
+export type HealthResponse = {
+  status: string;
+  uptime: number;
+  timestamp: string;
+};
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:4000";
 
