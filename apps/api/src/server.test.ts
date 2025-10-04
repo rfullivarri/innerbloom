@@ -8,8 +8,8 @@ process.env.CLERK_SECRET_KEY = process.env.CLERK_SECRET_KEY ?? "sk_test_123";
 process.env.CLERK_PUBLISHABLE_KEY = process.env.CLERK_PUBLISHABLE_KEY ?? "pk_test_123";
 
 vi.mock("@clerk/express", () => ({
-  ClerkExpressWithAuth: () => (_req: unknown, _res: unknown, next: () => void) => next(),
-  ClerkExpressRequireAuth: () => (req: { auth?: { userId: string } }, _res: unknown, next: () => void) => {
+  clerkMiddleware: () => (_req: unknown, _res: unknown, next: () => void) => next(),
+  requireAuth: () => (req: { auth?: { userId: string } }, _res: unknown, next: () => void) => {
     req.auth = { userId: "user_123" };
     next();
   }
