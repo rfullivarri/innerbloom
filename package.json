@@ -3,35 +3,35 @@
   "private": true,
   "type": "module",
   "version": "0.0.0",
+  "packageManager": "npm@10.5.0",
+  "workspaces": {
+    "packages": [
+      "apps/api",
+      "apps/web"
+    ]
+  },
   "scripts": {
-    "dev": "concurrently -c \"auto\" -n \"api,web\" \"pnpm --filter api dev\" \"pnpm --filter web dev\"",
-    "build": "pnpm -r --filter ./... run build",
-    "lint": "pnpm -r --filter ./... run lint",
-    "format": "pnpm -r --filter ./... run format",
-    "test": "pnpm -r --filter ./... run test",
-    "prepare": "husky install"
+    "dev": "npm run dev:local",
+    "dev:local": "node scripts/dev.mjs",
+    "local": "node -e \"\"",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "format": "npm run format --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
   },
   "devDependencies": {
     "@types/node": "^20.11.17",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
-    "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "husky": "^9.0.7",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "typescript": "^5.3.3",
     "vitest": "^1.2.2"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,md,css}": [
-      "pnpm exec prettier --write",
-      "pnpm exec eslint --fix"
-    ]
   }
 }

@@ -1,1 +1,7 @@
-module.exports = require("@innerbloom/config/prettier");
+module.exports = {
+  semi: true,
+  singleQuote: false,
+  trailingComma: "none",
+  tabWidth: 2,
+  printWidth: 100
+};

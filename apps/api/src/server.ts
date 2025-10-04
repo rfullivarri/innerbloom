@@ -4,6 +4,8 @@ import helmet from "helmet";
 import morgan from "morgan";
 import swaggerUi from "swagger-ui-express";
 
+import { clerkMiddleware } from "@clerk/express";
+
 import { env } from "./config/env.js";
 import { openApiDocument } from "./docs/openapi.js";
 import { errorHandler, notFoundHandler } from "./middleware/error.js";
@@ -15,6 +17,7 @@ export const createApp = () => {
   app.use(helmet());
   app.use(cors({ origin: env.corsOrigin }));
   app.use(express.json());
+  app.use(clerkMiddleware());
   app.use(morgan("dev"));
 
   app.use(router);

@@ -1,21 +1,22 @@
 import { render, screen } from "@testing-library/react";
-import { describe, it } from "vitest";
+import { describe, expect, it } from "vitest";
 
-import { MemoryRouter } from "react-router-dom";
+import { MarketingPage } from "./components/MarketingPage";
 
-import App from "./App";
+describe("Landing page", () => {
+  it("renders hero content and primary call to action", () => {
+    render(<MarketingPage />);
 
-describe("App navigation", () => {
-  it("renders all primary links", () => {
-    render(
-      <MemoryRouter>
-        <App />
-      </MemoryRouter>
-    );
+    expect(screen.getByRole("heading", { level: 1, name: /Design, launch, and evolve/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /Start building today/i })).toBeInTheDocument();
+    expect(screen.getByText(/One platform for missions, rewards, and analytics/i)).toBeInTheDocument();
+  });
 
-    expect(screen.getByText(/Dashboard/i)).toBeInTheDocument();
-    expect(screen.getByText(/Database/i)).toBeInTheDocument();
-    expect(screen.getByText(/Missions/i)).toBeInTheDocument();
-    expect(screen.getByText(/Rewards/i)).toBeInTheDocument();
+  it("includes anchor navigation for key sections", () => {
+    render(<MarketingPage />);
+
+    ["Product", "Platform", "Automation", "Contact"].forEach((label) => {
+      expect(screen.queryAllByRole("link", { name: label }).length).toBeGreaterThan(0);
+    });
   });
 });
