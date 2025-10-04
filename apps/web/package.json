@@ -16,14 +16,11 @@
     "react-router-dom": "^6.21.3"
   },
   "devDependencies": {
-    "@innerbloom/config": "file:../../packages/config",
-    "@innerbloom/tsconfig": "file:../../packages/tsconfig",
     "@testing-library/jest-dom": "^6.2.0",
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.2",
     "@types/react": "^18.2.39",
     "@types/react-dom": "^18.2.17",
-    "@vitejs/plugin-react-swc": "^3.5.0",
     "jsdom": "^23.2.0",
     "typescript": "^5.3.3",
     "vite": "^5.0.12",
