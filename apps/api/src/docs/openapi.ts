@@ -4,6 +4,15 @@ export const openApiDocument = {
     title: "Innerbloom API",
     version: "0.1.0"
   },
+  components: {
+    securitySchemes: {
+      bearerAuth: {
+        type: "http",
+        scheme: "bearer",
+        bearerFormat: "JWT"
+      }
+    }
+  },
   paths: {
     "/health": {
       get: {
@@ -31,6 +40,7 @@ export const openApiDocument = {
     "/v1/ping": {
       get: {
         summary: "Ping the API",
+        security: [{ bearerAuth: [] }],
         responses: {
           "200": {
             description: "Pong response",
@@ -39,12 +49,16 @@ export const openApiDocument = {
                 schema: {
                   type: "object",
                   properties: {
-                    pong: { type: "boolean" }
+                    pong: { type: "boolean" },
+                    userId: { type: "string" }
                   },
-                  required: ["pong"]
+                  required: ["pong", "userId"]
                 }
               }
             }
+          },
+          "401": {
+            description: "Authentication required"
           }
         }
       }
