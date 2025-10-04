@@ -138,38 +138,14 @@ export const MarketingPage = ({ signInButton }: MarketingPageProps) => {
             </div>
           </div>
           <div className="flex-1">
-            <div className="cosmic-card h-full overflow-hidden rounded-4xl border border-white/10 bg-white/5 p-8">
-              <div className="flex items-center gap-3 text-sm uppercase tracking-[0.35em] text-purple-200/70">
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-purple-400/40 bg-purple-400/10 text-purple-200">01</span>
-                Mission control snapshot
-              </div>
-              <div className="mt-10 space-y-6">
-                <div className="rounded-3xl border border-white/10 bg-black/30 p-6">
-                  <p className="text-xs uppercase tracking-[0.35em] text-purple-200/60">Live mission</p>
-                  <p className="mt-3 text-xl font-display text-white">Day 7 loyalty ritual</p>
-                  <div className="mt-6 grid grid-cols-3 gap-4 text-sm text-cosmic-muted">
-                    <div>
-                      <p className="text-xs uppercase text-purple-200/60">Progress</p>
-                      <p className="mt-1 text-lg font-semibold text-white">68%</p>
-                    </div>
-                    <div>
-                      <p className="text-xs uppercase text-purple-200/60">Participants</p>
-                      <p className="mt-1 text-lg font-semibold text-white">5,431</p>
-                    </div>
-                    <div>
-                      <p className="text-xs uppercase text-purple-200/60">Retention lift</p>
-                      <p className="mt-1 text-lg font-semibold text-white">+2.9x</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="rounded-3xl border border-white/10 bg-black/30 p-6">
-                  <p className="text-xs uppercase tracking-[0.35em] text-purple-200/60">Next action</p>
-                  <p className="mt-3 text-lg text-cosmic-muted">Trigger celebration drop when streak ≥ 5 days</p>
-                  <button className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-white/10 px-6 py-2 text-sm font-semibold text-white transition hover:bg-white/20">
-                    Schedule automation
-                  </button>
-                </div>
-              </div>
+            <div className="relative flex h-full items-center justify-center overflow-hidden rounded-4xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-purple-500/10 p-4 shadow-glow">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(168,85,247,0.25),_transparent_55%)]" aria-hidden />
+              <img
+                src="/Whats-App-Image-2025-08-31-at-03-52-15.jpg"
+                alt="Vista previa de Innerbloom en acción"
+                className="relative z-10 max-h-[540px] w-full rounded-3xl object-cover shadow-aurora"
+                loading="lazy"
+              />
             </div>
           </div>
         </section>
