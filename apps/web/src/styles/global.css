@@ -1,74 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   color-scheme: dark;
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background-color: #0f172a;
-  color: #f8fafc;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  background: #0f172a;
+  @apply bg-cosmic-background text-cosmic-foreground font-sans antialiased;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  @apply text-inherit no-underline;
 }
 
-main {
-  padding: 1.5rem;
-  max-width: 960px;
-  margin: 0 auto;
+.cosmic-container {
+  @apply mx-auto w-full max-w-6xl px-6 sm:px-10 lg:px-16;
 }
 
-nav {
-  display: flex;
-  gap: 1rem;
+.cosmic-pill {
+  @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-sm font-medium text-cosmic-highlight shadow-glow backdrop-blur;
 }
 
-.tab-link {
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  transition: background-color 0.2s ease;
+.cosmic-card {
+  @apply relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_20px_60px_rgba(15,23,42,0.45)] backdrop-blur transition-transform duration-300 hover:-translate-y-1 hover:shadow-glow;
 }
 
-.tab-link.active {
-  background-color: rgba(148, 163, 184, 0.25);
+.cosmic-card::before {
+  content: "";
+  @apply pointer-events-none absolute inset-0 bg-cosmic-grid opacity-0 transition-opacity duration-300;
 }
 
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-around;
-  padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
-  background-color: rgba(15, 23, 42, 0.95);
-  border-top: 1px solid rgba(148, 163, 184, 0.25);
+.cosmic-card:hover::before {
+  @apply opacity-100;
 }
 
-.bottom-nav a {
-  font-size: 0.85rem;
+.section-heading {
+  @apply text-3xl font-display font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl;
 }
 
-@media (min-width: 768px) {
-  .bottom-nav {
-    display: none;
-  }
-}
-
-@media (max-width: 767px) {
-  header nav {
-    display: none;
-  }
-
-  main {
-    padding-bottom: 5rem;
-  }
+.section-subtitle {
+  @apply mt-4 max-w-2xl text-base text-cosmic-muted sm:text-lg;
 }
