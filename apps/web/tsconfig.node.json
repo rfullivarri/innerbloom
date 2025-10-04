@@ -8,7 +8,8 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "strict": true,
-    "noEmit": true
+    "noEmit": false,
+    "outDir": "./dist/node"
   },
   "include": ["vite.config.ts"]
 }
