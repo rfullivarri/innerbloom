@@ -12,7 +12,7 @@
   },
   "scripts": {
     "dev": "npm run dev:local",
-    "dev:local": "concurrently \"npm run dev --workspace @innerbloom/api\" \"npm run dev --workspace @innerbloom/web\"",
+    "dev:local": "node scripts/dev.mjs",
     "local": "node -e \"\"",
     "build": "npm run build --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
@@ -23,7 +23,6 @@
     "@types/node": "^20.11.17",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
-    "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
