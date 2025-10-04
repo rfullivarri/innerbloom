@@ -1,8 +1,0 @@
-{
-  "extends": "@innerbloom/tsconfig/tsconfig.base.json",
-  "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "dist"
-  },
-  "exclude": ["src/**/*.test.ts"]
-}

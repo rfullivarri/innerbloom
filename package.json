@@ -7,10 +7,7 @@
   "workspaces": {
     "packages": [
       "apps/api",
-      "apps/web",
-      "packages/config",
-      "packages/shared",
-      "packages/tsconfig"
+      "apps/web"
     ]
   },
   "scripts": {
