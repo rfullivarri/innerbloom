@@ -1,16 +1,28 @@
 import request from "supertest";
-import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 
 process.env.PORT = process.env.PORT ?? "0";
 process.env.API_CORS_ORIGIN = process.env.API_CORS_ORIGIN ?? "http://localhost:5173";
 process.env.NODE_ENV = "test";
+process.env.CLERK_SECRET_KEY = process.env.CLERK_SECRET_KEY ?? "sk_test_123";
+process.env.CLERK_PUBLISHABLE_KEY = process.env.CLERK_PUBLISHABLE_KEY ?? "pk_test_123";
 
-import app, { createApp } from "./server.js";
+vi.mock("@clerk/express", () => ({
+  ClerkExpressWithAuth: () => (_req: unknown, _res: unknown, next: () => void) => next(),
+  ClerkExpressRequireAuth: () => (req: { auth?: { userId: string } }, _res: unknown, next: () => void) => {
+    req.auth = { userId: "user_123" };
+    next();
+  }
+}));
+
+type ServerModule = typeof import("./server.js");
+type TestAppInstance = ReturnType<ServerModule["createApp"]>;
 
 describe("api routes", () => {
-  let testApp = app;
+  let testApp: TestAppInstance;
 
-  beforeAll(() => {
+  beforeAll(async () => {
+    const { createApp } = await import("./server.js");
     testApp = createApp();
   });
 
@@ -24,9 +36,9 @@ describe("api routes", () => {
     expect(response.body.status).toBe("ok");
   });
 
-  it("pongs", async () => {
-    const response = await request(testApp).get("/v1/ping");
+  it("requires auth for ping and returns user context", async () => {
+    const response = await request(testApp).get("/v1/ping").set("Authorization", "Bearer test-token");
     expect(response.status).toBe(200);
-    expect(response.body).toEqual({ pong: true });
+    expect(response.body).toEqual({ pong: true, userId: "user_123" });
   });
 });
